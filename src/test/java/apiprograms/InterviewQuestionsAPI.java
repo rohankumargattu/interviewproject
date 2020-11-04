@@ -147,8 +147,8 @@ public class InterviewQuestionsAPI
 		}
 		
 		//Scenario 4 and 5
-		int shwetha=0;
-		int gaurav=0;
+		int number1=0;
+		int number2=0;
 		List<Map<String,Object>> lm=jp.getList("list");
 		for(int i=0;i<lm.size();i++)
 		{
@@ -165,7 +165,7 @@ public class InterviewQuestionsAPI
 					}
 					else
 					{
-						shwetha=1;
+						number1=1;
 					}
 				}
 				
@@ -178,13 +178,13 @@ public class InterviewQuestionsAPI
 					}
 					else
 					{
-						gaurav=1;
+						number2=1;
 					}
 				}
 			}
 		}
 		
-		if(shwetha==0)
+		if(number1==0)
 		{
 			System.out.println("For all \"500\" id's description is \"light rain\"");
 		}
@@ -192,7 +192,7 @@ public class InterviewQuestionsAPI
 		{
 			System.out.println("For all \"500\" id's description is NOT \"light rain\"");
 		}
-		if(gaurav==0)
+		if(number2==0)
 		{
 			System.out.println("For all \"800\" id's description is \"clear sky\"");
 		}
