@@ -1,0 +1,8 @@
+https://samples.openweathermap.org/data/2.5/forecast/hourly?q=London,us&appid=b6907d289e10d714a6e88b30761fae22
+
+
+1. is the response contains 4 days of data
+2. is all the forecast in the hourly interval(no hour should be missed)
+3. for all 4 days the temp should not be less than temp_min and should not be more than temp_max
+4. if the weather id is 500 then description should be light rain
+5. if the weather id is 800 then description should be clear sky
