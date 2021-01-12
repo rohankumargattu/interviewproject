@@ -65,7 +65,7 @@ public class HotelSearch
 		}
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("ss"))).sendKeys("New");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@aria-label='List of suggested destinations ']")));
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		List<WebElement> destinations=driver.findElements(By.xpath("//*[@aria-label='List of suggested destinations ']/li"));
 		int flag=0;
 		for(int i=0;i<destinations.size();i++)
@@ -74,7 +74,7 @@ public class HotelSearch
 			if(reqdest.equalsIgnoreCase("New York"))
 			{
 				destinations.get(i).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 				flag=1;
 				break;
 			}
@@ -82,7 +82,7 @@ public class HotelSearch
 		if(flag==0)
 		{
 			destinations.get(0).click();
-			Thread.sleep(3000);
+			//Thread.sleep(3000);
 		}
 		//Select check-in date(next day to current day)
 		String curdate=driver.findElement(By.xpath("//*[contains(@class,'today')]/span")).getText();
@@ -92,12 +92,12 @@ public class HotelSearch
 			if(curday==31)
 			{
 				driver.findElement(By.xpath("(//*[text()='1'])[2]")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else
 			{
 				driver.findElement(By.xpath("(//*[text()='"+(curday+1)+"'])[1]")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 		}
 		else if(curdate.contains("Apr") || curdate.contains("Jun") || curdate.contains("Sep") || curdate.contains("Nov"))
@@ -105,12 +105,12 @@ public class HotelSearch
 			if(curday==30)
 			{
 				driver.findElement(By.xpath("(//*[text()='1'])[2]")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else
 			{
 				driver.findElement(By.xpath("(//*[text()='"+(curday+1)+"'])[1]")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 		}
 		else
@@ -118,21 +118,21 @@ public class HotelSearch
 			if(curday==28 || curday==29)
 			{
 				driver.findElement(By.xpath("(//*[text()='1'])[2]")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else
 			{
 				driver.findElement(By.xpath("(//*[text()='"+(curday+1)+"'])[1]")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 		}
 		//Select check-in date(exactly 3 weeks later)
 		LocalDate dt=LocalDate.now().plusWeeks(3);
 		driver.findElement(By.xpath("//*[@data-date='"+dt+"']")).click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		//Select Travellers
 		driver.findElement(By.xpath("(//*[contains(text(),'adults')])[2]")).click();
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		//Select Adults(2)
 		while(2>1)
 		{
@@ -140,16 +140,16 @@ public class HotelSearch
 			if(noa<2)
 			{
 				driver.findElement(By.xpath("//*[@aria-label='Increase number of Adults']")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else if(noa>2)
 			{
 				driver.findElement(By.xpath("//*[@aria-label='Decrease number of Adults']")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else
 			{
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 				break;
 			}
 		}
@@ -160,16 +160,16 @@ public class HotelSearch
 			if(noc<1)
 			{
 				driver.findElement(By.xpath("//*[@aria-label='Increase number of Children']")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else if(noc>1)
 			{
 				driver.findElement(By.xpath("//*[@aria-label='Decrease number of Children']")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else
 			{
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 				break;
 			}
 		}
@@ -184,16 +184,16 @@ public class HotelSearch
 			if(nor<1)
 			{
 				driver.findElement(By.xpath("//*[@aria-label='Increase number of Rooms']")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else if(nor>1)
 			{
 				driver.findElement(By.xpath("//*[@aria-label='Decrease number of Rooms']")).click();
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 			}
 			else
 			{
-				Thread.sleep(3000);
+				//Thread.sleep(3000);
 				break;
 			}
 		}
@@ -210,15 +210,15 @@ public class HotelSearch
 			anopbf=m1.group();
 		}
 		System.out.println("No of all properties found before filters applied are: "+anopbf);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		//Apply filters(3 Star hotels)
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(text(),'3 stars')]"))).click();
-		Thread.sleep(10000);
-		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"b2searchresultsPage\"]/div[20]/div[1]/div[1]/div[1]/div[1]")));
+		//Thread.sleep(10000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@class,'bui-spinner--size-large')]/div")));
 		//Apply filters(price(lowest first)
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Price (lowest first)']"))).click();
-		Thread.sleep(10000);
-		//wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@id=\"b2searchresultsPage\"]/div[20]/div[1]/div[1]/div[1]/div[1]")));
+		//Thread.sleep(10000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@class,'bui-spinner--size-large')]/div")));
 		String nopaf=driver.findElement(By.xpath("//h1[contains(text(),'properties found')]")).getText();
 		Pattern p2=Pattern.compile("[0-9]+");
 		Matcher m2=p2.matcher(nopaf);
@@ -228,7 +228,7 @@ public class HotelSearch
 			anopaf=Integer.parseInt(m2.group());
 		}
 		System.out.println("No of all properties found after filters applied are: "+anopaf);
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		//Display the Lowest Valued hotel
 		if(anopaf==0)
 		{
@@ -247,7 +247,7 @@ public class HotelSearch
 			System.out.println("Least priced Hotel is:");
 			System.out.println(hotel_name+"-->"+hotel_price);
 		}
-		Thread.sleep(3000);
+		//Thread.sleep(3000);
 		//Close site
 		driver.close();	
 	}
