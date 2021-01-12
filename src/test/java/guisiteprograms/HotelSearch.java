@@ -71,7 +71,7 @@ public class HotelSearch
 		for(int i=0;i<destinations.size();i++)
 		{
 			String reqdest=driver.findElement(By.xpath("//*[@aria-label='List of suggested destinations ']/li["+(i+1)+"]/span[2]/span")).getText();
-			if(reqdest.equalsIgnoreCase("New Delhi"))
+			if(reqdest.equalsIgnoreCase("New York"))
 			{
 				destinations.get(i).click();
 				Thread.sleep(3000);
