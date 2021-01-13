@@ -71,7 +71,7 @@ public class HotelSearch
 		for(int i=0;i<destinations.size();i++)
 		{
 			String reqdest=driver.findElement(By.xpath("//*[@aria-label='List of suggested destinations ']/li["+(i+1)+"]/span[2]/span")).getText();
-			if(reqdest.equalsIgnoreCase("New York"))
+			if(reqdest.equalsIgnoreCase("New Delhi"))
 			{
 				destinations.get(i).click();
 				//Thread.sleep(3000);
@@ -85,7 +85,7 @@ public class HotelSearch
 			//Thread.sleep(3000);
 		}
 		//Select check-in date(next day to current day)
-		String curdate=driver.findElement(By.xpath("//*[contains(@class,'today')]/span")).getText();
+		/*String curdate=driver.findElement(By.xpath("//*[contains(@class,'today')]/span")).getAttribute("aria-label");
 		int curday=Integer.parseInt(driver.findElement(By.xpath("//*[contains(@class,'today')]/span/span")).getText());
 		if(curdate.contains("Jan") || curdate.contains("Mar") || curdate.contains("May") || curdate.contains("Jul") || curdate.contains("Aug") || curdate.contains("Oct") || curdate.contains("Dec"))
 		{
@@ -125,12 +125,14 @@ public class HotelSearch
 				driver.findElement(By.xpath("(//*[text()='"+(curday+1)+"'])[1]")).click();
 				//Thread.sleep(3000);
 			}
-		}
-		//Select check-in date(exactly 3 weeks later)
-		LocalDate dt=LocalDate.now().plusWeeks(3);
-		driver.findElement(By.xpath("//*[@data-date='"+dt+"']")).click();
+		}*/
+		LocalDate cidt=LocalDate.now().plusDays(1);
+		driver.findElement(By.xpath("//*[@data-date='"+cidt+"']")).click();
+		//Select check-out date(exactly 3 weeks later)
+		LocalDate codt=LocalDate.now().plusWeeks(3);
+		driver.findElement(By.xpath("//*[@data-date='"+codt+"']")).click();
 		//Thread.sleep(3000);
-		//Select Travellers
+		//Select Travelers
 		driver.findElement(By.xpath("(//*[contains(text(),'adults')])[2]")).click();
 		//Thread.sleep(3000);
 		//Select Adults(2)
