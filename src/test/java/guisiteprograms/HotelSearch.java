@@ -218,7 +218,7 @@ public class HotelSearch
 		//Thread.sleep(10000);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@class,'bui-spinner--size-large')]/div")));
 		//Apply filters(price(lowest first)
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Price (lowest first)']"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[contains(text(),'Price (lowest first)')]"))).click();
 		//Thread.sleep(10000);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@class,'bui-spinner--size-large')]/div")));
 		String nopaf=driver.findElement(By.xpath("//h1[contains(text(),'properties found')]")).getText();
